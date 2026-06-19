@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:5198
+
+### Login (gera o token)
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "teste@teste.com",
+  "senha": "123"
+}
+
+### Listar salas (substitua TOKEN_AQUI pelo token retornado no login)
+GET {{baseUrl}}/salas
+Authorization: Bearer TOKEN_AQUI
+
+### Criar sala
+POST {{baseUrl}}/salas
+Content-Type: application/json
+Authorization: Bearer TOKEN_AQUI
+
+{
+  "nome": "Sala Azul",
+  "capacidade": 8,
+  "possuiProjetor": true
+}
+
+### Atualizar sala (troque o {id})
+PUT {{baseUrl}}/salas/1
+Content-Type: application/json
+Authorization: Bearer TOKEN_AQUI
+
+{
+  "nome": "Sala Azul - Reformada",
+  "capacidade": 10,
+  "possuiProjetor": true
+}
+
+### Excluir sala (troque o {id})
+DELETE {{baseUrl}}/salas/1
+Authorization: Bearer TOKEN_AQUI
